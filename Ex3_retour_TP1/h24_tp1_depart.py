@@ -10,9 +10,9 @@ class Etudiant:
         self.notes_TP = notes_TP
         self.notes_Exam = notes_Exam
 
-        @classmethod
-        def calculer_note_finale():
-            pass
+    @classmethod
+    def calculer_note_finale(notes_TP , notes_Exam):
+            return (sum(notes_TP) /5 + sum(notes_Exam)/3) / 2
 
 class Bilan : 
     def __init__(self, cours:str, etudiants:list[Etudiant]) -> None:
@@ -21,17 +21,17 @@ class Bilan :
         moyenne = int
         taux_succes = int   
 
-        @classmethod
-        def __calculer_moyenne():
-            pass
+    @classmethod
+    def __calculer_moyenne():
+        pass
 
-        @classmethod
-        def __calculer_taux_succes():
-            pass
+    @classmethod
+    def __calculer_taux_succes():
+        pass
 
-        @classmethod
-        def __str__():
-            pass
+    @classmethod
+    def __str__():
+        pass
 
 
 
@@ -49,13 +49,14 @@ def lire_CSV_notes(path) -> list[Etudiant]:
             
     return liste_etudiants
 
-
+print(Etudiant.calculer_note_finale(liste_etudiant[1]))
 
 if __name__ == "__main__" :
     nom_cours = "Prog 2"
     étudiants = lire_CSV_notes("resultats_evaluation.csv")
     
     #bilan_cours = Bilan()
+
 
 
 

@@ -2,17 +2,49 @@ import os
 import csv
 os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du script aura toujours lieu dans le répertoire où il se trouve.
 
-class Etudiant: pass
+class Etudiant: 
+    def __init__(self,id:int , nom:str , programme:str, notes_TP:list[int] , notes_Exam:list[int]) -> None:
+        self.id = id
+        self.nom = nom
+        self.programme = programme
+        self.notes_TP = notes_TP
+        self.notes_Exam = notes_Exam
 
-class Bilan : pass
+        @classmethod
+        def calculer_note_finale():
+            pass
+
+class Bilan : 
+    def __init__(self, cours:str, etudiants:list[Etudiant]) -> None:
+        self.cours = cours
+        self.etudiants = etudiants
+        moyenne = int
+        taux_succes = int   
+
+        @classmethod
+        def __calculer_moyenne():
+            pass
+
+        @classmethod
+        def __calculer_taux_succes():
+            pass
+
+        @classmethod
+        def __str__():
+            pass
+
+
 
 def lire_CSV_notes(path) -> list[Etudiant]:
     with open(path, "r", encoding='utf-8') as f_lu:
         csv_reader = csv.reader(f_lu,delimiter=';')
         en_tete = next(csv_reader)
+        next(csv_reader)
         liste_etudiants = []
         for ligne in csv_reader :
             # À COMPLETER, POUR CHAQUE LIGNE CRÉE UN ÉTUDIANT ET AJOUTER LE À LA liste_etudiants
+            EtudiantAppend = Etudiant(ligne[0], ligne[1],ligne[2],ligne[3:8], ligne[8:])
+            liste_etudiants.append(EtudiantAppend)
             pass
             
     return liste_etudiants
